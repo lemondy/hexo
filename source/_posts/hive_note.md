@@ -38,7 +38,6 @@ ORDER BY word;
   ```
   INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees' 
   SELECT name, salary, address FROM employees WHERE se.state='CA';
-  m
   ```
 
 ###概念说明
