@@ -34,6 +34,7 @@ ORDER BY word;
 7. 外部表 CREATE EXTERNAL TABLE .... LOCATION ''，通过 external 说明创建的是外部表，location指示该表的数据位于哪个路径。外部表，Hive 不认为自己完全拥有这份数据，因此，删除该表并不会删除这份数据，只会删除该表的元数据。
 8. 可以手动设置 Hive 为严格(strict)模式，此时，如果查询语句中没有指定分区过滤，就会禁止提交这个任务。当然也可以设置为非严格(nostrict)模式。set hive.mapred.mode=strict;
 9. SHOW PARTITIONS tablename; 查看表分区， SHOW PARTITIONS tablename PARTITIONS(partition1='') 查看某个分区下的数据
+10. 导出数据：按照原格式导出， `hadoop fs -cp source_path target_path`, 或者使用 ```INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees' SELECT name, salary, address FROM employees WHERE se.state='CA';```
 
 ###概念说明
 1. 管理表和外部表： **管理表**一般指的是我们自己创建的表，有时称为内部表，这种表 Hive 或多或少会控制着数据的生命周期。这些表的额数据存储在有配置项 hive.metastore.warehouse.dir 所定义的目录的子目录下。当我们删除一个管理表时，Hive 也会删除这个表中的数据；**外部表** 删除外部表时，只是删除了外部表的元数据。
