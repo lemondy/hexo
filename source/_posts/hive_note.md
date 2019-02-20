@@ -1,4 +1,8 @@
-##Hive Note ##
+title: Hive Note 
+date: 2016/07/10
+tags: [hive, 笔记]
+
+------
 
 ### Hive 实现 WordCount 示例程序 ###
 
@@ -11,6 +15,8 @@ SELECT word, count(1) As count FROM
 GROUP BY word
 ORDER BY word;
 ```
+
+<!-- more -->
 
 ### Hive 中的命名空间 ###
 
@@ -40,5 +46,6 @@ ORDER BY word;
   SELECT name, salary, address FROM employees WHERE se.state='CA';
   ```
 
-###概念说明
+### 概念说明
+
 1. 管理表和外部表： **管理表**一般指的是我们自己创建的表，有时称为内部表，这种表 Hive 或多或少会控制着数据的生命周期。这些表的额数据存储在有配置项 hive.metastore.warehouse.dir 所定义的目录的子目录下。当我们删除一个管理表时，Hive 也会删除这个表中的数据；**外部表** 删除外部表时，只是删除了外部表的元数据。
