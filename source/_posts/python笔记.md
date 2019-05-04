@@ -6,6 +6,8 @@ tags: [python, 笔记]
 
 在集合中没有重复元素的情况下，考虑使用 set 集合，而非 list，set 的一些常见运算速度比 list 快很多。
 
+<!-- more -->
+
 对于 for 循环中的迭代，建议使用如下的方式
  
 	for i in xrange(1000): pass

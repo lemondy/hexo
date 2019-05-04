@@ -17,7 +17,7 @@ tags: [面试, Java, Mysql]
 
 <!-- more -->
 
-###Java基础知识###
+### Java基础知识###
 1. 一个** “.java”** 文件中可以包含多个类(不是内部类)，但是只能有一个public的类，并且public的类名必须与文件名相一致。
 2. & 和 && 的区别： 他们都可以用作逻辑与的运算符，表示逻辑与，当两边都为ture，真个运算才为true；否则为false。不同点在于：&&具有短路的功能，若第一个表达式为false，第二个就不会计算，另一方面，&可以进行位运算。
 3. 跳出多重循环：在内层循环中设置标志位，外层循环检测标志的状态。
@@ -43,7 +43,7 @@ tags: [面试, Java, Mysql]
 	2. 运行期异常是RuntimeException类及其子类异常，如NullPointerException等。这些异常是不检查异常，程序中可以选择捕获处理也可以不处理。这些异常一般是由于程序逻辑错误引起。出现运行期异常后，要么线程中止，要么就是主线程终止。在异常退出前应该把异常数据处理掉，然后记录日志。**非运行期异常**是RuntimeException以外的异常，类型上都属于Exception类及其子类，如IOEexception，SQLException等以及用户自定义的异常。对于这类异常，**JAVA编译器强制要求我们对出现的这些异常进行catch并处理，否则程序就不能编译通过。**
 	3. 几个常见的运行期异常：NullPointerException, ArrayIndexOutOfBoundsException, ClassCastException, IllegalArgumentException, NumberFormateException.
 	
-###多线程###
+### 多线程###
 
 14. Java中实现线程的方式：
 	1. java5以前：new Thread(){}.start();另外一种方式是new Thread(new Runnable(){}).start();
@@ -69,7 +69,7 @@ tags: [面试, Java, Mysql]
 
 7. volatile是轻量级的synchronized，他在多处理器开发中保证了共享变量的“可见性”。可见性的意思是当一个线程修改一个共享变量是，另外一个线程能读到这修改的值。
 
-###集合###
+### 集合###
 20. Collection的认识。Java中封装了优良的接口和类组成了集合框架Collection，这些接口和类有很多抽象数据类型操作的API，而这是我们常用的且在数据结构中熟知的。例如Map，Set，List等。并且Java用面向对象设计的思想封装了这些数据结构和算法，这些极大的简化了程序员编程的负担。程序员也可以在这个集合框架上定义更高级别的数据抽象，从而满足自己的需要。
  ![collection](/images/Collection.bmp)
 
@@ -79,7 +79,7 @@ tags: [面试, Java, Mysql]
 
 23. HashMap和Hashtable：HashMap是Hashtable的轻量级实现(非线程安全的实现)，他们都实现了Map接口，主要区别在于HashMap允许key为空和value为空，效率高于Hashtable。
 
-###IO流###
+### IO流###
 24. java中存在字节流和字符流。字节流继承InputStream和OutputStream，字符流继承自InputStramReader和OutputStreamWriter。
 
 25. 字符流和字节流的主要区别：字符流使用了缓冲区，而字节流没有缓冲区；底层设备永远只接受字节数据；字符是字节通过不同的编码方式的包装；字符向字节转换时要注意编码方式。
@@ -88,7 +88,7 @@ tags: [面试, Java, Mysql]
 
 27. java中直接缓冲区和非直接缓冲器有什么区别：
 
-###JVM相关###
+### JVM相关###
 1. 64位JVM中，int 的长度任然为32位，与虚拟机本身无关。
 2. Serial与Parallel GC之间的不同之处：他们在GC执行时都会引起stop-the-world。他们不同在于serial收集器是默认的复制收集器，执行GC的只有一个线程，而parallel使用多个GC线程执行。
 3. WeakReference 和 SoftReference的 区别：他们有利于GC和内存的效率。但是WeakReference一旦失去最后一个强引用，就会被GC回收，而软引用虽然不能阻止被回收，但是可以延迟到JVM内存不足的时候。

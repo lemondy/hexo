@@ -36,15 +36,21 @@ ORDER BY word;
 3. 用户不需要退出 hive CLI 就可以执行简单的 bash shell 命令。只要在命令前加上 ！ 并且以分号(;)结尾。
 4. 使用 `set hive.cli.print.current.db=true;` 显示当前所在的数据库.
 5. 一般在 Hive 中不允许删除一个包含有表的数据库，一种做法是先删除数据库中的所有表，再删除数据库；另外一种做法是在删除语句后面加上关键字 cascade;
-6. 通过拷贝一张已经存在的表的表模式（无需拷贝数据）来创建新表: ```CREATE TABLE IF NOT EXISTS mydb.employees2 LIKE mydb.employees;```
+6. 通过拷贝一张已经存在的表的表模式（无需拷贝数据）来创建新表: 
+
+```
+CREATE TABLE IF NOT EXISTS mydb.employees2 LIKE mydb.employees;
+```
+
 7. 外部表 CREATE EXTERNAL TABLE .... LOCATION ''，通过 external 说明创建的是外部表，location指示该表的数据位于哪个路径。外部表，Hive 不认为自己完全拥有这份数据，因此，删除该表并不会删除这份数据，只会删除该表的元数据。
 8. 可以手动设置 Hive 为严格(strict)模式，此时，如果查询语句中没有指定分区过滤，就会禁止提交这个任务。当然也可以设置为非严格(nostrict)模式。set hive.mapred.mode=strict;
 9. SHOW PARTITIONS tablename; 查看表分区， SHOW PARTITIONS tablename PARTITIONS(partition1='') 查看某个分区下的数据
 10. 导出数据：按照原格式导出， `hadoop fs -cp source_path target_path`, 或者使用
-  ```
+ 
+```
   INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees' 
   SELECT name, salary, address FROM employees WHERE se.state='CA';
-  ```
+```
 
 ### 概念说明
 

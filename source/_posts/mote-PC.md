@@ -10,7 +10,7 @@ tags: [tinyos, mote-Pc]
 
 <!-- more -->
 
-###内容概要###
+### 内容概要###
 1. Packet sources and TestSerial
 2. BaseStation and net.tinyos.tools.Listen
 3. MIG:gnerating packet objects
@@ -19,7 +19,7 @@ tags: [tinyos, mote-Pc]
 	4.2 The tool sides
 5. Sending a packet to the serial port in Tinyos
 
-###Packet sources and TestSerial ###
+### Packet sources and TestSerial ###
 
 首先确定你使用的平台支持与电脑进行通信。大多数的节点都有一个串口或者类似的接口。例如，mica 家族系列可以直接在主板上控制串口。Telos 节点同样有串口接口，但是得通过 usb 接口电脑才能和节点通信。
 
@@ -82,7 +82,7 @@ Received packet sequence number 7
 ```
 并且 LEDS 灯在闪烁。
 
-###BaseStation and net.tinyos.tools.Listen ###
+### BaseStation and net.tinyos.tools.Listen ###
 
 基站是 Tinyos 中比较常用的应用。它作为一个串口和无线网络之间的桥梁。当它从串口中接收到数据后，它就通过无线射频转发该数据；当它从无线网络中接收到数据后，它通过串口转发给节点。利用基站程序允许 PC 工具直接和节点网络通信。
 

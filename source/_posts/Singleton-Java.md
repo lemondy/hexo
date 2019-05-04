@@ -9,9 +9,9 @@ Java 中的单例模式是很简单的，从名字就可以很容易知道这种
 以上问题就是这次博客主要说明的内容。
 <!-- more -->
 
-###单例模式实现方式###
+### 单例模式实现方式###
 
-####version 1.0####
+#### version 1.0####
 构造方法设置为 `private`， 仅被调用一次，将对象定义为公有 `final` 静态的。由于缺少公有的构造函数，从而保证创建的对象唯一。
 
 ```
@@ -38,7 +38,7 @@ public class Singleton{
 }
 ```
 
-####version 1.1####
+#### version 1.1####
 和上一种的区别在于将实例设置为私有的，同时提供一个公有的静态工厂方法：
 
 ```
@@ -77,7 +77,7 @@ public class Singleton{
 
 但是上面这种常用的实现方式有个问题，因为实例是全局的，所以，在多线程的情况下这种方式存在问题，有可能会初始化多个对象。例如，有可能多个线程都同时通过了 `INSTANCE == null` 条件判断，于是就会生成多个对象，造成内存泄漏。于是为了实现线程之间的同步互斥访问临界区，有如下的改进版本：
 
-####version 1.2####
+#### version 1.2####
 
 ```
 public class Singleton{
@@ -103,7 +103,7 @@ public class Singleton{
 上面的做法看似好像可以了，但是实际还是有问题的。因为，对于多个线程，他们可以同时通过 `INSTANCE == null` 这个条件的判断，接着串行的执行同步块，同样可以创建多个对象。所以这种方式还是不行。
 
 继续修改。
-####version 1.3####
+#### version 1.3####
 
 ```
 public class Singleton{
@@ -125,7 +125,8 @@ public class Singleton{
 
 这种在判断条件前就进行同步，理论上应该可以了。它保证只有一个对象可以创建实例了。但是这种方式会有个问题，就是多个线程执行时只能串行访问该代码，尽管创建代码只有一次，后面的都得同步。这种做法比较极端，同时性能上会大打折扣。
 
-####version 1.4####
+#### version 1.4####
+
 这里使用的是双重检查机制(`double checked locking`)。代码如下：
 
 	public class Singleton{
@@ -219,7 +220,7 @@ public class Singleton{
 	}
 
 
-####version 3.0####
+#### version 3.0####
 
 上面的所有版本针对与将对象序列化时都会存在问题。将该单例对象序列存储后，再进行反序列化时，每次都会生成一个新的对象，从而违背单实例。例如：
 
@@ -255,6 +256,6 @@ public enum Singleton{
 
 
 
-###参考文献###
+### 参考文献 ###
 1. 《Effective Java (2nd)》
 2. [what is an efficient way to implement a singleton pattern in java (stackoverflow)](http://stackoverflow.com/questions/70689/what-is-an-efficient-way-to-implement-a-singleton-pattern-in-java)

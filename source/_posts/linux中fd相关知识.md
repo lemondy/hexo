@@ -1,6 +1,6 @@
 title: linux中fd相关知识
 date: 2019-02-23 17:47:13
-tags: [linux, fd]
+tags: [linux, fd, too many open files, 运维]
 ---
 
 ## fd 介绍

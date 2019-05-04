@@ -15,8 +15,8 @@ email: lemondy9@gmail.com
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://lemondy.github.io
 root: /
-#permalink: :year/:month/:day/:title/
-permalink: title/
+permalink: :year/:month/:day/:title/
+#permalink: :title/
 permalink_defaults:
 
 # Directory
@@ -31,6 +31,7 @@ skip_render:
   - README.md
   - CNAME
   - baidu_verify_3eCm49jfqz.html
+  - googlefe0e4f667fe61c55.html
 
 # sitemap
 sitemap:
@@ -38,6 +39,11 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
+baidu_url_submit:
+  count: 5 ## latest 5 link
+  host: lemondy.github.io
+  token: VvkRHfUT3oIqgXbK
+  path: baidu_urls.txt
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -86,10 +92,27 @@ markdown:
  breaks: true
  smartLists: true
  smartypants: true
-
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
-deploy:
+deploy: 
   type: git
   repository: git@github.com:lemondy/lemondy.github.io.git
   branch: master
