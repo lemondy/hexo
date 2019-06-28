@@ -17,22 +17,24 @@ Windows 10 下查看系统设置-关于，在Windows规格下面可以查看系�
 
 右击我的电脑，进入：控制面板 - 程序 - 启用或关闭 Windows 功能 - 开启 适用于 Linux 的 Windows 子系统
 
-![open-windows-wsl](/images/windows-open-wsl.png)
+![open-windows-wsl](/images/yeeco/windows-open-wsl.png)
 
 ## 第三步：打开 Windows Store，安装ubuntu
 打开 Microsoft Store，然后选择你喜爱的 Linux 分发。例如 Ubuntu，选择安装想要的linux发行版本
 搜索框内，输入 Ubuntu，选择版本然后安装，我这里选择的是 18.04 的版本（推荐这个版本）
-![windows-app-store](/images/windows-app-store.png)
+![windows-app-store](/images/yeeco/windows-app-store.png)
 
-![windows-app-install](/images/windows-app-install.png)
+![windows-app-install](/images/yeeco/windows-app-install.png)
 这里安装完成后，我们可以再windows 的启动菜单栏里面看到如下的图标，点击该图标
-![start-ubuntu](/images/start-ubuntu.png)
+![start-ubuntu](/images/yeeco/start-ubuntu.png)
 首次启动的时候需要输入ubuntu系统的用户名和密码，密码输入的时候窗口中是不显示的，创建完成后，我们可以关闭这个窗口了。
 
-![ubuntu-new-user](/images/ubuntu-new-user.png)
+![ubuntu-new-user](/images/yeeco/ubuntu-new-user.png)
 
 ## 第四步：启动 Ubuntu 系统
-1.在开始菜单中，启动 Ubuntu 系统：打开两个ubuntu系统窗口
+1.在开始菜单中，启动 Ubuntu 系统：打开两个ubuntu系统窗口(点击这个两次)
+![ubuntu-new-user](/images/yeeco/start-ubuntu.png)
+
 2.下载gyee客户端：
 在第一个窗口中从上倒下依次执行如下命令：
 
@@ -44,6 +46,7 @@ unzip gyee.linux_x64.20190614.zip
 ```
 
 执行成功的情况下我们可以看到如下的输出
+![gyee-run-log](/images/yeeco/gyee-run-log.png)
 
 在第二个窗口中执行如下命令:
 
@@ -52,5 +55,6 @@ cd ~/gyee && ./gyee attach
 ```
 
 这个执行成功后，我们可以看到如下的交互窗口，在这个交互的窗口中我们就可以执行账户的创建，块信息查询，转账等操作了。
+![gyee-attach-run](/images/yeeco/gyee-attach-run.png)
 
 Yeeco链中提供的更多命令可以查看：https://shimo.im/docs/yXlbTf1U12IPiyRq/read
