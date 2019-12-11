@@ -84,12 +84,26 @@ grouping sets(
 上面的 SQL 语句等价于下面的 `UNION ALL` 语句
 
 ```sql
-select A, B, null, null, null from my_table group by A, B
+select A,
+    case when B is not null then 'B' else 'others' end as key,
+    case when B is not null then B else 'others' end as value
+from my_table group by A, B
 union all
-select A, null, C, null, null from my_table group by A, C
+select A,
+    case when C is not null then 'C' else 'others' end as key,
+    case when C is not null then C else 'others' end as value
+from my_table group by A, C
 union all
-select A, null, null, D, null from my_table group by A, D
+select A,
+    case when D is not null then 'D' else 'others' end as key,
+    case when D is not null then D else 'others' end as value
+from my_table group by A, D
 union all
-select A, null, null, null, E from my_table group by A, E
+select A,
+    case when E is not null then 'E' else 'others' end as key,
+    case when E is not null then E else 'others' end as value
+from my_table group by A, E
 
 ```
+
+grouping sets 中的每个括号内取值时，只有括号内的列元素可以从原始表中抽取数据，其他的列数据都是 null。
